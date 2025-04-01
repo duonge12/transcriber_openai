@@ -4,6 +4,13 @@ from controller.transcriber_controller import get_script_controller
 
 app = Flask(__name__)
 
+@app.route('/')
+def hello():
+    return "Nhung"
+@app.route('/favicon.ico')
+def favicon():
+    return app.send_static_file('favicon.ico')
+
 @app.route('/', methods=['POST'])
 def getScript():
     data = request.get_json()
@@ -12,9 +19,6 @@ def getScript():
     else:
         return 'Invalid request', 400
 
-@app.route('/')
-def hello():
-    return "Nhung"
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
