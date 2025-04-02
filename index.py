@@ -9,9 +9,10 @@ def home():
 @app.route('/', methods=['POST'])
 def getTranscript():
     if request.method == 'POST':
-        # Get JSON data from the request body
-        data = request.get_json()
-        result=get_script_controller(data['url']);
+        file = request.files['file']
+        file_path = 'temp_file.mp4'
+        file.save(file_path)
+        result=get_script_controller(file);
         # Return the response with the received message
         return jsonify(result)
 
