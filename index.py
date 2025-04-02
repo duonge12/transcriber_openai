@@ -10,8 +10,6 @@ def home():
 def getTranscript():
     if request.method == 'POST':
         file = request.files['file']
-        file_path = 'temp_file.mp4'
-        file.save(file_path)
         result=get_script_controller(file);
         # Return the response with the received message
         return jsonify(result)
