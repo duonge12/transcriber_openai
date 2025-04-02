@@ -8,17 +8,7 @@ app = Flask(__name__)
 def hello():
     return "Nhung"
 
-@app.route('/favicon.ico')
-def favicon():
-    return app.send_static_file('favicon.ico')
 
-@app.route('/', methods=['POST'])
-def getScript():
-    data = request.get_json()
-    if data and 'url' in data:
-        return get_script_controller(data['url'])
-    else:
-        return 'Invalid request', 400
 
 
 if __name__ == '__main__':
