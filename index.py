@@ -10,7 +10,7 @@ def home():
 def getTranscript():
     if request.method == 'POST':
         file = request.files['file']
-        result=get_script_controller(file);
+        result=get_script_controller(file.stream);
         # Return the response with the received message
         return jsonify(result)
 
