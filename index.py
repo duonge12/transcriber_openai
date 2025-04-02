@@ -1,16 +1,12 @@
-import os
-from flask import Flask, request, jsonify
-from controller.transcriber_controller import get_script_controller
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
 @app.route('/')
-def hello():
-    return "Nhung"
-
-
-
+def home():
+    return jsonify({"message": "Hello from Flask on Vercel!"})
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 4000))
-    app.run(host='0.0.0.0', port=port, debug=False)  # debug=False for production
+    from os import environ
+    port = int(environ.get("PORT", 4000))
+    app.run(host='0.0.0.0', port=port)
