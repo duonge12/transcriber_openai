@@ -1,12 +1,12 @@
 import whisper
 
 
-model = whisper.load_model("tiny")
+model = whisper.load_model("large")
 
 class TranscriberModel:
     @staticmethod
-    def getScript(path):
-        result = model.transcribe(path, language="vi")
+    def getScript(urls):
+        result = model.transcribe(urls, language="vi")
         return result
 
 
